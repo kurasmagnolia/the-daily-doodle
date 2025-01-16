@@ -13,7 +13,13 @@ export const renderFeatureComic = (comic) => {
   comicDiv.append(comicHeading, comicImage);
 };
 
-export const renderRandom = () => {};
+export const renderRandom = (comic) => {
+  const comicDiv = document.getElementById('');
+  const comicHeading = document.getElementById('');
+  const comicImage = document.createElement('img');
+
+  const randomImgSrc = (comicImage.src = '');
+};
 
 export const render3x3 = () => {};
 
