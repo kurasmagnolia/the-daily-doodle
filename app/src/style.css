@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e9e9db;
+}
+
+.navbar {
+  background-color: #333333 !important;
+  display: flex;
+  /* height: 10px; */
+}
+
+.navbar img {
+  width: 150px;
+  height: 70px;
+}
+
+.navbar a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.featured-comic-title {
+  border: 3px solid;
+  background-color: #333333;
+  align-items: center;
+  height: 100px;
+  width: 500px;
+}
+
+.featured-comic-section {
+  display: flex;
+  justify-content: center;
+}
+
+.featured-h2 {
+  display: flex;
+  justify-items: center;
+  color: #ffffff;
+}

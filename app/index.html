@@ -3,18 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="" />
+    <link href="src/style.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Daily Doodle</title>
   </head>
   <body>
     <nav class="navbar">
       <a class="navbar-home-logo-link" href="./index.html">
-        <img src="" alt="The Daily Doodle Logo"
+        <img
+          src="src/assets/the-daily-doodle-logo.png"
+          alt="The Daily Doodle Logo"
       /></a>
-      <a class="navbar-random-link" href="src/random.html"></a>
-      <a class="navbar-favorites-link" href="src/favorites.html"></a>
+      <a class="navbar-random-link" href="src/random.html">Generate</a>
+      <a class="navbar-favorites-link" href="src/favorites.html"
+        >My Favorites</a
+      >
     </nav>
-    <main class="comic-main"></main>
+
+    <header class="featured-comic-section">
+      <div class="featured-comic-title">
+        <h2 class="featured-h2">Featured Comic Of The Day!</h2>
+      </div>
+    </header>
+
+    <main class="comic-main">
+      <section class="comics-3x3-section"></section>
+    </main>
     <script type="module" src="src/main.js"></script>
   </body>
 </html>
