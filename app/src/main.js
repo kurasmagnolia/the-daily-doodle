@@ -1,4 +1,4 @@
-import { getLatestComic, getSpecificComic } from "./fetch-functions";
+import { getLatestComic, getSpecificComic } from './fetch-functions';
 
 const main = async () => {
   getLatestComic();

@@ -55,3 +55,15 @@ export const fetch9RandomComics = async () => {
   }
   return comics; // returns the array of comics
 };
+
+export const getFeaturedComic = async () => {
+  try {
+    const latestComic = await getLatestComic(); // gets latest comic for stopping point
+    const randomGen = Math.floor(Math.random() * latestComic.num); // generates random number
+    const comic = await getSpecificComic(randomGen); // fetch one comic
+    comics.push(comic); // adds it to the array
+  } catch (error) {
+    console.warn(error);
+    return null;
+  }
+};
