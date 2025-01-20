@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-color: #e9e9db;
+  --navbar-color: #333333;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
+.navbar {
+  background-color: var(--navbar-color);
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid #000000;
+}
+
+.doodle-logo {
+  margin-right: auto;
+  margin-left: 45px;
+  width: 35%;
+  height: 95%;
+}
+
+.navbar-items {
+  gap: 30px;
+  padding-top: 33px;
+  font-size: 24px;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #ffffff;
+  padding-right: 80px;
+  padding-top: 28px;
+}
+
+.navbar-link:hover {
+  color: #0066cc;
+}
+
+.featured-comic-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.featured-comic-title {
+  border: 3px solid;
+  background-color: #333333;
+  text-align: center;
+  margin: 0;
+  padding: 40px;
+  height: 100px;
+  width: auto;
+}
+
+.featured-h2 {
+  color: #ffffff;
+  font-family: Comica;
+}
+
+.featured-comic-container {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center;
+  border: 5px solid;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.featured-comic-img {
+  max-width: 100%; /* Ensure image doesn't exceed container width */
+  height: auto;
+}
+
+.featured-comic-timer {
+  background-color: #333333;
+  position: absolute;
+  border: 5px solid #000000;
+  color: #ffffff;
+  margin-top: 34%;
+  padding: 10px;
+  width: auto;
+  text-align: center;
+  align-items: flex-end;
+  right: 25%;
+}
+
+.comics-3x3-div {
+  border: 5px solid #000000;
+  margin-top: 15%;
+}

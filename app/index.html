@@ -3,11 +3,97 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="" />
+    <link href="src/style.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Daily Doodle</title>
   </head>
   <body>
-    <div id="app"></div>
+    <nav class="navbar">
+      <a class="navbar-logo" href="./index.html">
+        <img
+          class="doodle-logo"
+          src="src/assets/tdd-logo-final.png"
+          alt="The Daily Doodle Logo"
+      /></a>
+      <div class="navbar-items">
+        <a class="navbar-link" href="index.html"> > Home </a>
+        <a class="navbar-link" href="src/comic-generator.html"
+          >Comic Generator</a
+        >
+        <a class="navbar-link" href="src/favorites.html">My Favorites</a>
+      </div>
+    </nav>
+
+    <header class="featured-comic-header">
+      <div class="featured-comic-title">
+        <h2 class="featured-h2">Featured Comic Of The Day: Human Altitude</h2>
+      </div>
+
+      <div class="featured-comic-container">
+        <img
+          class="featured-comic-img"
+          src="https://imgs.xkcd.com/comics/human_altitude.png"
+          alt=""
+        />
+      </div>
+      <div class="featured-comic-timer">
+        <p>Time Left Until Reset: 10:23:10</p>
+      </div>
+    </header>
+
+    <!-- MAIN START -->
+    <main class="comic-main">
+      <section class="comics-3x3-section">
+        <div class="comics-3x3-div">
+          <img
+            class="comic-panel"
+            src="https://imgs.xkcd.com/comics/landscape_cropped_(1).jpg"
+            alt=""
+          />
+          <img
+            class="comic-panel"
+            src="https://imgs.xkcd.com/comics/irony_color.jpg"
+            alt=""
+          />
+          <img
+            class="comic-panel"
+            src="https://imgs.xkcd.com/comics/threesome.png"
+            alt=""
+          />
+          <img
+            class="comic-panel"
+            src="https://imgs.xkcd.com/comics/kite.jpg"
+            alt=""
+          />
+          <img
+            class="comic-panel"
+            src="https://imgs.xkcd.com/comics/dilution.png"
+            alt=""
+          />
+          <img
+            class="comic-panel"
+            src="https://imgs.xkcd.com/comics/rps.png"
+            alt=""
+          />
+          <img
+            class="comic-panel"
+            src="https://imgs.xkcd.com/comics/centrifugal_force.png"
+            alt=""
+          />
+          <img
+            class="comic-panel"
+            src="https://imgs.xkcd.com/comics/douglas_engelbart_1925_2013.png"
+            alt=""
+          />
+          <img
+            class="comic-panel"
+            src="https://imgs.xkcd.com/comics/how_to_deliver_christmas_presents.png"
+            alt=""
+          />
+        </div>
+      </section>
+    </main>
+    <!-- MAIN END -->
     <script type="module" src="src/main.js"></script>
   </body>
 </html>
