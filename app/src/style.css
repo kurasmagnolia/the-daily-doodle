@@ -96,4 +96,6 @@ body {
 .comics-3x3-div {
   border: 5px solid #000000;
   margin-top: 15%;
+  display: flex;
+  flex-basis: auto;
 }
