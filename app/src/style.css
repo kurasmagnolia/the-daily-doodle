@@ -42,6 +42,7 @@ body {
 
 .navbar-link:hover {
   color: #0066cc;
+  cursor: pointer;
 }
 
 .featured-comic-header {
@@ -98,4 +99,8 @@ body {
   margin-top: 15%;
   display: flex;
   flex-basis: auto;
+}
+
+.comic-panel:hover {
+  cursor: pointer;
 }
