@@ -16,20 +16,20 @@ body {
 .navbar {
   background-color: var(--navbar-color);
   display: flex;
+  align-items: center;
   justify-content: space-between;
   border-bottom: 3px solid #000000;
 }
 
 .doodle-logo {
-  margin-right: auto;
-  margin-left: 45px;
-  width: 35%;
-  height: 95%;
+  padding: 1rem;
+  width: 300px;
+  height: 100%;
 }
 
 .navbar-items {
   gap: 30px;
-  padding-top: 33px;
+  padding-top: 1rem;
   font-size: 24px;
 }
 
