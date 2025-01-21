@@ -1,4 +1,5 @@
-import { getLatestComic, getSpecificComic } from './fetch-functions';
+import { getLatestComic, getSpecificComic } from "./fetch-functions";
+import { activeNavPage } from "./dom-helpers";
 
 const main = async () => {
   getLatestComic();
