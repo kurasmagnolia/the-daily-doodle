@@ -16,20 +16,20 @@ body {
 .navbar {
   background-color: var(--navbar-color);
   display: flex;
+  align-items: center;
   justify-content: space-between;
   border-bottom: 3px solid #000000;
 }
 
 .doodle-logo {
-  margin-right: auto;
-  margin-left: 45px;
-  width: 35%;
-  height: 95%;
+  padding: 1rem;
+  width: 300px;
+  height: 100%;
 }
 
 .navbar-items {
   gap: 30px;
-  padding-top: 33px;
+  padding-top: 1rem;
   font-size: 24px;
 }
 
@@ -42,6 +42,7 @@ body {
 
 .navbar-link:hover {
   color: #0066cc;
+  cursor: pointer;
 }
 
 .featured-comic-header {
@@ -98,15 +99,16 @@ body {
 }
 
 .comics-3x3-div {
-  /* border: 5px solid #000000; */
+  border: 5px solid #000000;
   /* max-width: 270px; */
   /* max-height: auto; */
-  margin-top: 9.5%;
+  margin-top: 1.5%;
   display: grid;
   gap: 1.5px;
   /* align-items: center; */
   justify-content: center;
   object-fit: cover;
+  padding: 1rem;
   /* flex-grow: 0; */
   /* flex-shrink: 0; */
   /* width: auto; */
