@@ -57,7 +57,7 @@ export const render3x3 = (comicDiv, comics) => {
     // append elements to its correct container
     // comicCell.append(comicImage);
     // comicDiv.append(comicCell);
-    comicDiv.append(comicHeading, comicImage);
+    comicDiv.append(comicImage);
   });
 };
 
