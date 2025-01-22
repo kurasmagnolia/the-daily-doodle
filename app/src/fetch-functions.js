@@ -53,7 +53,8 @@ export const fetch9RandomComics = async () => {
       return null;
     }
   }
-  return comics; // returns the array of comics
+  console.log(comics);
+  return comics; // returns the array of comic objects
 };
 
 export const getFeaturedComic = async () => {
