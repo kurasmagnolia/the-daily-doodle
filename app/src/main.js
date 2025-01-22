@@ -1,8 +1,19 @@
-import { getLatestComic, getSpecificComic } from "./fetch-functions";
-import { activeNavPage } from "./dom-helpers";
+import {
+  getLatestComic,
+  getSpecificComic,
+  fetch9RandomComics,
+} from "./fetch-functions";
+import { handle3, render3x3 } from "./dom-helpers";
 
 const main = async () => {
   const comicDiv = document.getElementById("comic-grid");
+
+  const comics = await fetch9RandomComics();
+  // event listeners for buttons across our application
+  document
+    .querySelector(".comic-3x3-button")
+    .addEventListener("click", handle3);
+
   // getLatestComic();
   // getSpecificComic(235);
 
@@ -18,4 +29,4 @@ const main = async () => {
   // render3x3(comicDiv, comics);
 };
 
-main();
+await main();
