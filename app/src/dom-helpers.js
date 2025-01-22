@@ -3,12 +3,12 @@ import {
   getSpecificComic,
   getFeaturedComic,
   fetch9RandomComics,
-} from "./fetch-functions";
+} from './fetch-functions';
 
 export const renderFeatureComic = (comic) => {
-  const comicDiv = document.getElementById("");
-  const comicHeading = document.getElementById("");
-  const comicImage = document.createElement("img");
+  const comicDiv = document.getElementsByClassName('featured-comic-container');
+  const comicHeading = document.getElementsByClassName('featured-h2');
+  const comicImage = document.createElement('img');
 
   comicHeading.textContent = `Featured Comic: ${comic.title} `;
 
@@ -44,17 +44,17 @@ export const renderFeatureComic = (comic) => {
 
 export const render3x3 = (comicDiv, comics) => {
   // clears each row before inserting its 3 comic strip images
-  comicDiv.innerHTML = "";
+  comicDiv.innerHTML = '';
 
   console.log(comics);
 
   // iterate through comics array and create cell for it
   comics.forEach((comic) => {
-    const comicImage = document.createElement("img");
+    const comicImage = document.createElement('img');
 
     // give elements their attributes and content
     comicImage.src = comic.img;
-    comicImage.className = "comic-panel";
+    comicImage.className = 'comic-panel';
     comicImage.alt = comic.alt;
 
     // append elements to its correct container
@@ -65,22 +65,32 @@ export const render3x3 = (comicDiv, comics) => {
 };
 
 export const handle3 = async () => {
-  const comicDiv = document.getElementById("comic-grid");
+  const comicDiv = document.getElementById('comic-grid');
 
   const comics = await fetch9RandomComics();
 
   render3x3(comicDiv, comics);
 };
 
-export const renderFavorites = (favoritesUl, comic) => {
-  const comicDiv = document.createElement("div");
-  const comicImg = document.createElement("img");
-  const comicHeading = document.createElement("h3");
+export const renderFavorites = (favoritesUl, comics) => {
+  const comicDiv = document.createElement('div');
+  const comicImg = document.createElement('img');
+  const comicHeading = document.createElement('h3');
+  const date = document.createElement('p');
+  const idNumber = document.createElement('p');
 
-  comicImg.src = comic.img;
-  comicImg.alt = comic.alt;
-  comicHeading.textContent = `${comic.title}`;
+  comicImg.src = comics.img;
+  comicImg.alt = comics.alt;
+  comicHeading.textContent = `${comics.title}`;
+  date.textContent = `Date: ${comics.month} / ${comics.year}`;
+  idNumber.textContent = `Issue Number:${comics.num}`;
 
-  comicDiv.append(comicImg, comicHeading);
+  comicDiv.className = 'favorited-comic';
+  comicImg.className = 'fav-panel';
+  comicHeading.className = 'fav-text';
+  date.className = 'fav-text';
+  idNumber.className = 'fav-text';
+
+  comicDiv.append(comicHeading, comicImg, date, idNumber);
   favoritesUl.append(comicDiv);
 };
