@@ -1,17 +1,14 @@
 import { defineConfig } from "vite";
+import { resolve } from "path";
 export default defineConfig({
-  // GitHub Pages expects an index.html in the root directory
-  // so just run npm build before pushing to GitHub and this will rebuild our assets to the root
+  base: "/the-daily-doodle/", // Replace <REPOSITORY_NAME> with your GitHub repo name
   build: {
-    outDir: "..",
     rollupOptions: {
       input: {
-        main: "./index.html",
-        page1: "./src/comic-generator.html",
-        page2: "./src/favorites.html",
+        home: resolve(__dirname, "index.html"),
+        generator: resolve(__dirname, "./src/comic-generator.html"),
+        favorites: resolve(__dirname, "./src/favorites.html"),
       },
     },
   },
-  // needed for github pages just put the repo name here
-  base: "/the-daily-doodle/",
 });
