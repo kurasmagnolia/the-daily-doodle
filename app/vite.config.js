@@ -6,7 +6,7 @@ export default defineConfig({
     outDir: "..",
     rollupOptions: {
       input: {
-        main: "index.html",
+        main: "./index.html",
         page1: "./src/comic-generator.html",
         page2: "./src/favorites.html",
       },
