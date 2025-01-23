@@ -3,34 +3,40 @@ import { render3x3 } from "./dom-helpers";
 
 export const handleRefreshClick = async () => {
   const comicDiv = document.getElementById("comic-grid");
+  comicDiv.innerHTML = "";
 
   // render loading text
-  const div = document.querySelector("div#comic-grid");
-  const p = document.createElement("p");
-  p.textContent = "Loading";
+  const loadingElementsDiv = document.querySelector(".loading-elements");
+  const loadingText = document.createElement("p");
   const circleBuffer = document.createElement("img");
-  circleBuffer.src = "./assets/loading-buffer-circle.png";
+
+  loadingText.textContent = "Loading!";
+  loadingText.className = "loading-text";
+  circleBuffer.src = "../src/assets/loading-buffer-circle.png";
   circleBuffer.className = "loader";
-  div.append(p);
+  loadingElementsDiv.append(loadingText, circleBuffer);
 
   const comics = await fetch9RandomComics();
 
   // remove loading txt
-  div.innerHTML = "";
+  loadingElementsDiv.innerHTML = "";
 
   render3x3(comicDiv, comics);
 };
 
 export const handleComicClick = (event) => {
   const dialog = document.querySelector("dialog"); // selects the dialog element
+  const modalTitle = document.querySelector(".modal-title");
   const modalImage = document.querySelector(".modal-image"); // selects the image inside the modal
   const modalTranscript = document.querySelector(".modal-transcript"); // selects the context inside the modal
+
   const img = event.target;
   if (
     img.classList.contains("comic-panel") ||
     img.classList.contains("featured-comic-img")
   ) {
-    // Get the clicked comic's image source and alt text
+    // gets the clicked comic's image source and alt text
+    modalTitle.textContent = img.dataset.title;
     modalImage.src = img.src; // Extract URL from 'backgroundImage' CSS property
     modalTranscript.textContent = img.dataset.transcript; // Use custom data-transcript attribute
 
