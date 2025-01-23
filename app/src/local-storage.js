@@ -1,4 +1,3 @@
-// 1. setLocalStorageKey- a wrapper function that automatically stringifies the value and sets it to the key
 const setLocalStorageKey = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
@@ -10,6 +9,20 @@ const getLocalStorageKey = (key) => {
     console.error(error);
     return null;
   }
+};
+
+// Store the featured comic and its timestamp
+export const setFeaturedComicData = (comic) => {
+  const data = {
+    comic,
+    timestamp: new Date().toISOString(), // Save the current time
+  };
+  setLocalStorageKey("featuredComic", data);
+};
+
+// Retrieve the featured comic and timestamp
+export const getFeaturedComicData = () => {
+  return getLocalStorageKey("featuredComic");
 };
 
 export const setComics = (newComics) => {
