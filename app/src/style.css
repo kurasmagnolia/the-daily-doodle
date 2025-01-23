@@ -98,8 +98,13 @@ body {
   margin-top: 5px;
   margin-left: 45%;
   padding: 10px;
-  max-width: 350px;
-  justify-content: center;
+  max-width: fit-content;
+  justify-content: flex-end;
+}
+.timer-and-img {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .timer {
@@ -415,4 +420,20 @@ ul {
   max-width: 100%;
   margin-bottom: 9px;
   height: 100%;
+}
+
+#user-input {
+  border: 3px solid;
+  gap: 5px;
+  display: flex;
+  background-color: #333333;
+  text-align: center;
+  justify-content: center;
+  border-color: #000000;
+  color: #ffffff;
+  /* margin: 0; */
+  padding: 1%;
+  /* height: 100px; */
+  width: auto;
+  box-shadow: 0 3px 10px black;
 }
