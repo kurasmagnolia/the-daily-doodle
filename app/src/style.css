@@ -301,8 +301,20 @@ dialog::backdrop {
   color: #0066cc;
 }
 
-.favorite-icon:hover {
+.favorite-button {
+  background: none;
+  border: none;
+}
+
+.heart-icon {
+  background-color: none;
+  fill: none;
+  stroke: grey;
   cursor: pointer;
+}
+
+.heart-icon.favorited {
+  fill: red;
 }
 
 /* Modal image */
@@ -356,15 +368,26 @@ dialog::backdrop {
   justify-content: center;
 }
 
+.comic-gen-img-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#comic-gen-img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
 #comic-gen-title {
   display: flex;
   justify-content: center;
   padding: 2%;
   width: 100%;
+  padding-bottom: 0;
 }
 
 /* favorites tab css below */
-
 .favorites-title {
   display: flex;
   flex-direction: column;

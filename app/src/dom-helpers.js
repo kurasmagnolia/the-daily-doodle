@@ -26,18 +26,23 @@ export const renderFeaturedComic = (comic) => {
 };
 
 export const renderGeneratedComic = (comicDiv, comic) => {
-  // clears previously generated image
+  // Clear previous content
   comicDiv.innerHTML = "";
 
+  // Create new comic elements
   const comicImage = document.createElement("img");
+  const comicTitle = document.createElement("h2");
 
-  comicImage.className = "comic-gen-img";
+  comicImage.id = "comic-gen-img";
   comicImage.src = comic.img;
   comicImage.alt = comic.alt;
+
+  comicTitle.id = "comic-gen-title";
+  comicTitle.textContent = `Comic #${comic.num}: ${comic.title}`;
+
+  comicDiv.appendChild(comicTitle);
   comicDiv.appendChild(comicImage);
 };
-
-// grid-template-columns: 1fr 1fr 1fr;
 
 export const render3x3 = (comicDiv, comics) => {
   // clears each row before inserting its 3 comic strip images
