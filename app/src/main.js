@@ -4,20 +4,12 @@ import {
   fetch9RandomComics,
 } from './fetch-functions';
 import { render3x3, renderFeaturedComic } from './dom-helpers';
-import {
-  handleComicClick,
-  handleFavoriteClick,
-  handleNextClick,
-  handlePrevClick,
-  handleRandomClick,
-  handleInputChange,
-  handleRefreshClick,
-} from './handle-funcs';
+import { handleComicClick, handleRefreshClick } from './handle-funcs';
 
 const main = async () => {
   const dialog = document.querySelector('dialog'); // selects the dialog element
   const closeButton = document.querySelector('.close-modal'); // selects the close button
-  const favoriteIcon = document.querySelector('.favorite-icon');
+  const favoriteButton = document.querySelector('.favorite-button');
   // event listener for the "Refresh" button
   const refreshButton = document.querySelector('.comic-3x3-button');
 

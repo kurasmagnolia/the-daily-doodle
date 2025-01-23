@@ -15,15 +15,15 @@
   </head>
   <body>
     <nav class="navbar">
-      <a class="navbar-logo" href="./index.html">
+      <a class="navbar-logo" href="index.html">
         <img
           class="doodle-logo"
-          src="src/assets/tdd-logo-final.png"
+          src="./src/assets/tdd-logo-final.png"
           alt="The Daily Doodle Logo"
       /></a>
       <div class="navbar-items">
         <a class="navbar-link" href="index.html"> > Home </a>
-        <a class="navbar-link" href="src/comic-generator.html"
+        <a class="navbar-link" href="./src/comic-generator.html"
           >Comic Generator</a
         >
         <a class="navbar-link" href="src/favorites.html">My Favorites</a>
@@ -76,7 +76,24 @@
               <img class="modal-image" src="" alt="" />
               <h3 class="modal-title"></h3>
               <p class="modal-transcript"></p>
-              <i class="fi-xnlux3-heart favorite-icon"></i>
+              <button class="favorite-button">
+                <svg
+                  class="heart-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="45"
+                  height="45"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.8 4.6c-2-1.8-5.1-1.8-7 0l-.8.8-.8-.8c-2-1.8-5.1-1.8-7 0-2 1.9-2 5.1 0 7l7.8 7.8 7.8-7.8c2-1.9 2-5.1 0-7z"
+                  />
+                </svg>
+              </button>
             </div>
           </dialog>
         </div>
