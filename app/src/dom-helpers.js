@@ -5,17 +5,24 @@ import {
   fetch9RandomComics,
 } from "./fetch-functions";
 
-export const renderFeatureComic = (comic) => {
-  const comicDiv = document.getElementById("");
-  const comicHeading = document.getElementById("");
+export const renderFeaturedComic = (comic) => {
+  const comicImgDiv = document.querySelector(".featured-comic-container");
+  const comicTitleDiv = document.querySelector(".featured-comic-title");
+  const comicHeading = document.createElement("h2");
   const comicImage = document.createElement("img");
 
-  comicHeading.textContent = `Featured Comic: ${comic.title} `;
+  comicImgDiv.innerHTML = "";
+  comicTitleDiv.innerHTML = "";
+
+  comicHeading.className = "featured-h2";
+  comicHeading.textContent = `Featured Comic Of The Day: ${comic.title} `;
 
   comicImage.src = comic.img;
   comicImage.alt = comic.alt;
+  comicImage.className = "featured-comic-img";
 
-  comicDiv.append(comicHeading, comicImage);
+  comicTitleDiv.append(comicHeading);
+  comicImgDiv.append(comicImage);
 };
 
 // export const renderRandom = (comicDiv, comics) => {
@@ -46,8 +53,6 @@ export const render3x3 = (comicDiv, comics) => {
   // clears each row before inserting its 3 comic strip images
   comicDiv.innerHTML = "";
 
-  console.log(comics);
-
   // iterate through comics array and create cell for it
   comics.forEach((comic) => {
     const comicImage = document.createElement("img");
@@ -56,20 +61,13 @@ export const render3x3 = (comicDiv, comics) => {
     comicImage.src = comic.img;
     comicImage.className = "comic-panel";
     comicImage.alt = comic.alt;
+    comicImage.dataset.transcript = comic.transcript;
 
     // append elements to its correct container
     // comicCell.append(comicImage);
     // comicDiv.append(comicCell);
     comicDiv.append(comicImage);
   });
-};
-
-export const handle3 = async () => {
-  const comicDiv = document.getElementById("comic-grid");
-
-  const comics = await fetch9RandomComics();
-
-  render3x3(comicDiv, comics);
 };
 
 export const renderFavorites = (favoritesUl, comic) => {

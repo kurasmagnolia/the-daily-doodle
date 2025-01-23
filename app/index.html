@@ -9,7 +9,7 @@
     />
     <link href="src/style.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Daily Doodle</title>
+    <title>Home • The Daily Doodle</title>
   </head>
   <body>
     <nav class="navbar">
@@ -29,16 +29,12 @@
     </nav>
 
     <header class="featured-comic-header">
-      <div class="featured-comic-title">
-        <h2 class="featured-h2">Featured Comic Of The Day: Human Altitude</h2>
-      </div>
-
-      <div class="featured-comic-container">
-        <img class="featured-comic-img"
-        src=https://imgs.xkcd.com/comics/landscape_cropped_(1).jpg alt="" />
-      </div>
-      <div class="featured-comic-timer">
-        <p>Time Left Until Reset: 10:23:10</p>
+      <div class="featured-comic-title"></div>
+      <div class="timer-and-img">
+        <div class="featured-comic-container"></div>
+        <div class="featured-comic-timer">
+          <p class="timer"></p>
+        </div>
       </div>
     </header>
 
@@ -66,60 +62,29 @@
           </div>
         </div>
 
-        <div class="comics-3x3-div">
-          <div id="comic-grid" class="comic-grid">
-            <!-- <img
-              class="comic-panel"
-              src="https://imgs.xkcd.com/comics/landscape_cropped_(1).jpg"
-              alt=""
-            />
-            <img
-              class="comic-panel"
-              src="https://imgs.xkcd.com/comics/irony_color.jpg"
-              alt=""
-            />
-            <img
-              class="comic-panel"
-              src="https://imgs.xkcd.com/comics/threesome.png"
-              alt=""
-            />
+        <div class="modal-container">
+          <dialog id="selected-comic-modal" class="selected-comic-modal">
+            <form
+              id="close-modal"
+              aria-label="Close modal"
+              method="dialog"
+            ></form>
+            <div class="modal-content">
+              <button class="close-modal" autofocus>X</button>
+              <img class="modal-image" src="" alt="" />
+              <p class="modal-transcript"></p>
+            </div>
+          </dialog>
+        </div>
 
-            <img
-              class="comic-panel"
-              src="https://imgs.xkcd.com/comics/kite.jpg"
-              alt=""
-            />
-            <img
-              class="comic-panel"
-              src="https://imgs.xkcd.com/comics/dilution.png"
-              alt=""
-            />
-            <img
-              class="comic-panel"
-              src="https://imgs.xkcd.com/comics/rps.png"
-              alt=""
-            />
-            <img
-              class="comic-panel"
-              src="https://imgs.xkcd.com/comics/centrifugal_force.png"
-              alt=""
-            />
-            <img
-              class="comic-panel"
-              src="https://imgs.xkcd.com/comics/douglas_engelbart_1925_2013.png"
-              alt=""
-            />
-            <img
-              class="comic-panel"
-              src="https://imgs.xkcd.com/comics/how_to_deliver_christmas_presents.png"
-              alt=""
-            /> -->
-          </div>
+        <div class="comics-3x3-div">
+          <div id="comic-grid" class="comic-grid"></div>
         </div>
         <!-- <div class="grid"></div> -->
       </section>
     </main>
     <!-- MAIN END -->
     <script type="module" src="src/main.js"></script>
+    <script type="module" src="src/counter.js"></script>
   </body>
 </html>
