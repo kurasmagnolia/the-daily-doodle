@@ -61,22 +61,22 @@ export const handleComicClick = (event) => {
   }
 };
 
-export const handleFavoriteClick = (event) => {
-  const heartIcon = event.currentTarget;
+// export const handleFavoriteClick = (event) => {
+//   const heartIcon = event.currentTarget;
 
-  if (heartIcon.classList.contains("fi-xnlux3-heart")) {
-    heartIcon.classList.remove("fi-xnlux3-heart");
-    heartIcon.classList.add("fi-xnsuxl-heart-solid");
-  } else {
-    heartIcon.classList.remove("fi-xnsuxl-heart-solid");
-    heartIcon.classList.add("fi-xnlux3-heart");
-  }
+//   //   if (heartIcon.classList.contains("fi-xnlux3-heart")) {
+//   //     heartIcon.classList.remove("fi-xnlux3-heart");
+//   //     heartIcon.classList.add("fi-xnsuxl-heart-solid");
+//   //   } else {
+//   //     heartIcon.classList.remove("fi-xnsuxl-heart-solid");
+//   //     heartIcon.classList.add("fi-xnlux3-heart");
+//   //   }
 
-  // Force a re-render
-  const parent = heartIcon.parentNode;
-  parent.removeChild(heartIcon);
-  parent.appendChild(heartIcon);
-};
+//   // Force a re-render
+//   const parent = heartIcon.parentNode;
+//   parent.removeChild(heartIcon);
+//   parent.appendChild(heartIcon);
+// };
 
 // Keep track of the current comic number
 let currentComicNum = 1;
