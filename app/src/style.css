@@ -33,6 +33,14 @@ body {
   font-size: 24px;
 }
 
+h2 {
+  font-family: Marker Felt;
+}
+
+a {
+  font-family: Marker Felt;
+}
+
 .navbar-link {
   text-decoration: none;
   color: #ffffff;
@@ -66,7 +74,7 @@ body {
 
 .featured-h2 {
   color: #ffffff;
-  font-family: Comica;
+  font-family: Marker Felt;
 }
 
 .featured-comic-container {
@@ -409,7 +417,7 @@ li {
 .fav-text {
   /* background-color: #333333; */
   color: #0f0303;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Marker Felt;
 }
 
 ul {

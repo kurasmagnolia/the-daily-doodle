@@ -1,39 +1,39 @@
-import { fetch9RandomComics, getSpecificComic } from "./fetch-functions";
-import { render3x3, renderGeneratedComic } from "./dom-helpers";
+import { fetch9RandomComics, getSpecificComic } from './fetch-functions';
+import { render3x3, renderGeneratedComic } from './dom-helpers';
 
 export const handleRefreshClick = async () => {
-  const comicDiv = document.getElementById("comic-grid");
-  comicDiv.innerHTML = "";
+  const comicDiv = document.getElementById('comic-grid');
+  comicDiv.innerHTML = '';
 
   // render loading text
-  const loadingElementsDiv = document.querySelector(".loading-elements");
-  const loadingText = document.createElement("p");
-  const circleBuffer = document.createElement("img");
+  const loadingElementsDiv = document.querySelector('.loading-elements');
+  const loadingText = document.createElement('p');
+  const circleBuffer = document.createElement('img');
 
-  loadingText.textContent = "Loading!";
-  loadingText.className = "loading-text";
-  circleBuffer.src = "../src/assets/loading-buffer-circle.png";
-  circleBuffer.className = "loader";
+  loadingText.textContent = 'Loading!';
+  loadingText.className = 'loading-text';
+  circleBuffer.src = '../src/assets/loading-buffer-circle.png';
+  circleBuffer.className = 'loader';
   loadingElementsDiv.append(loadingText, circleBuffer);
 
   const comics = await fetch9RandomComics();
 
   // remove loading txt
-  loadingElementsDiv.innerHTML = "";
+  loadingElementsDiv.innerHTML = '';
 
   render3x3(comicDiv, comics);
 };
 
 export const handleComicClick = (event) => {
-  const dialog = document.querySelector("dialog"); // selects the dialog element
-  const modalTitle = document.querySelector(".modal-title");
-  const modalImage = document.querySelector(".modal-image"); // selects the image inside the modal
-  const modalTranscript = document.querySelector(".modal-transcript"); // selects the context inside the modal
+  const dialog = document.querySelector('dialog'); // selects the dialog element
+  const modalTitle = document.querySelector('.modal-title');
+  const modalImage = document.querySelector('.modal-image'); // selects the image inside the modal
+  const modalTranscript = document.querySelector('.modal-transcript'); // selects the context inside the modal
 
   const img = event.target;
   if (
-    img.classList.contains("comic-panel") ||
-    img.classList.contains("featured-comic-img")
+    img.classList.contains('comic-panel') ||
+    img.classList.contains('featured-comic-img')
   ) {
     // gets the clicked comic's image source and alt text
     modalTitle.textContent = img.dataset.title;
@@ -45,7 +45,7 @@ export const handleComicClick = (event) => {
 
     // removes any existing transcript text
     const existingTranscript =
-      modalTranscript.querySelector(".modal-transcript");
+      modalTranscript.querySelector('.modal-transcript');
     if (existingTranscript) {
       existingTranscript.remove();
     }
@@ -62,12 +62,12 @@ export const handleComicClick = (event) => {
 export const handleFavoriteClick = (event) => {
   const heartIcon = event.currentTarget;
 
-  if (heartIcon.classList.contains("fi-xnlux3-heart")) {
-    heartIcon.classList.remove("fi-xnlux3-heart");
-    heartIcon.classList.add("fi-xnsuxl-heart-solid");
+  if (heartIcon.classList.contains('fi-xnlux3-heart')) {
+    heartIcon.classList.remove('fi-xnlux3-heart');
+    heartIcon.classList.add('fi-xnsuxl-heart-solid');
   } else {
-    heartIcon.classList.remove("fi-xnsuxl-heart-solid");
-    heartIcon.classList.add("fi-xnlux3-heart");
+    heartIcon.classList.remove('fi-xnsuxl-heart-solid');
+    heartIcon.classList.add('fi-xnlux3-heart');
   }
 
   // Force a re-render
@@ -80,12 +80,13 @@ export const handleFavoriteClick = (event) => {
 let currentComicNum = 1;
 
 export const handlePrevClick = async (event) => {
+  console.log('test');
   if (currentComicNum > 1) {
     currentComicNum -= 1;
     const comic = await getSpecificComic(currentComicNum);
     renderComic(comic);
   } else {
-    alert("No previous comic!");
+    alert('No previous comic!');
   }
 };
 
@@ -115,7 +116,7 @@ export const handleInputChange = async (event) => {
 // Helper function to render the comic
 const renderComic = (comic) => {
   if (comic) {
-    const comicDiv = document.getElementById("comic-gen-img-container");
+    const comicDiv = document.getElementById('comic-gen-img-container');
     renderGeneratedComic(comicDiv, comic);
   }
 };
