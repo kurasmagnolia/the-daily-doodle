@@ -70,15 +70,25 @@ export const render3x3 = (comicDiv, comics) => {
   });
 };
 
-export const renderFavorites = (favoritesUl, comic) => {
+export const renderFavorites = (favoritesUl, comics) => {
   const comicDiv = document.createElement("div");
   const comicImg = document.createElement("img");
   const comicHeading = document.createElement("h3");
+  const date = document.createElement("p");
+  const idNumber = document.createElement("p");
 
-  comicImg.src = comic.img;
-  comicImg.alt = comic.alt;
-  comicHeading.textContent = `${comic.title}`;
+  comicImg.src = comics.img;
+  comicImg.alt = comics.alt;
+  comicHeading.textContent = `${comics.title}`;
+  date.textContent = `Date: ${comics.month} / ${comics.year}`;
+  idNumber.textContent = `Issue Number:${comics.num}`;
 
-  comicDiv.append(comicImg, comicHeading);
+  comicDiv.className = "favorited-comic";
+  comicImg.className = "fav-panel";
+  comicHeading.className = "fav-text";
+  date.className = "fav-text";
+  idNumber.className = "fav-text";
+
+  comicDiv.append(comicHeading, comicImg, date, idNumber);
   favoritesUl.append(comicDiv);
 };
