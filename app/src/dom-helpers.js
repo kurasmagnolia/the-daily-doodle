@@ -58,10 +58,14 @@ export const render3x3 = (comicDiv, comics) => {
     const comicImage = document.createElement("img");
 
     // give elements their attributes and content
+    comicImage.dataset.title = comic.title;
     comicImage.src = comic.img;
     comicImage.className = "comic-panel";
     comicImage.alt = comic.alt;
     comicImage.dataset.transcript = comic.transcript;
+    // comicImage.dataset.month = comic.month;
+    // comicImage.dataset.day = comic.day;
+    // comicImage.dataset.year = comic.year;
 
     // append elements to its correct container
     // comicCell.append(comicImage);
@@ -80,8 +84,8 @@ export const renderFavorites = (favoritesUl, comics) => {
   comicImg.src = comics.img;
   comicImg.alt = comics.alt;
   comicHeading.textContent = `${comics.title}`;
-  date.textContent = `Date: ${comics.month} / ${comics.year}`;
-  idNumber.textContent = `Issue Number:${comics.num}`;
+  date.textContent = `Release Date: ${comics.month} / ${comics.day} / ${comics.year}`;
+  idNumber.textContent = `Issue #: ${comics.num}`;
 
   comicDiv.className = "favorited-comic";
   comicImg.className = "fav-panel";

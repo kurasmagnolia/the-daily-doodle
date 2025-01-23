@@ -113,6 +113,7 @@ body {
 
 .comics-3x3-div {
   border: 30px solid #000000;
+  background-color: #c2c2d6;
   /* max-width: 270px; */
   /* max-height: auto; */
   margin-top: 1.5%;
@@ -137,15 +138,9 @@ body {
 } */
 
 .loader {
-  width: 50px;
+  width: 100px;
 
-  height: 50px;
-
-  border-radius: 50%;
-
-  border: 5px solid #ccc; /* Light color for the border */
-
-  border-top: 5px solid #3498db; /* Highlight color that spins */
+  height: 100px;
 
   animation: spin 1s linear infinite;
 }
@@ -158,6 +153,15 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.loading-elements {
+  display: flex;
+  align-items: center;
+}
+
+.loading-text {
+  font-size: 25px;
 }
 
 .comic-panel {
@@ -249,18 +253,19 @@ body {
 }
 
 dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: none;
   border-radius: 8px;
   padding: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  background: white;
-  max-width: 90%;
+  background: rgb(0, 0, 0);
+  width: 80%;
+  max-width: 600px;
   max-height: 90%;
-  overflow: hidden;
-  /* position: fixed; */
-  /* top: 25%;
-  left: 25%;
-  justify-items: center; */
+  overflow: auto;
 }
 
 /* Center the dialog */
@@ -277,10 +282,10 @@ dialog::backdrop {
 .modal-content {
   display: flex;
   flex-direction: column;
-  background-color: #333333;
+  background-color: #c2c2d6;
   align-items: center;
   padding: 20px;
-  color: #ffffff;
+  color: #000000;
 }
 
 /* Close button */
@@ -306,7 +311,7 @@ dialog::backdrop {
 /* Modal text */
 .modal-transcript {
   font-size: 18px;
-  color: #ffffff;
+  color: #000000;
   text-align: center;
 }
 
