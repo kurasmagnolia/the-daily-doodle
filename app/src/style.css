@@ -330,6 +330,7 @@ dialog::backdrop {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding: 5%;
 }
 
 #comic-gen-name {
@@ -340,6 +341,7 @@ dialog::backdrop {
   background-color: #333333;
   text-align: center;
   justify-content: center;
+  box-shadow: 0 6px 6px black;
 
   color: #ffffff;
   /* margin: 0; */
@@ -445,4 +447,20 @@ ul {
 .gen-buttons {
   display: flex;
   gap: 1rem;
+}
+
+button {
+  border: 3px solid;
+  gap: 5px;
+  display: flex;
+  background-color: #333333;
+  text-align: center;
+  justify-content: center;
+  border-color: #000000;
+  color: #ffffff;
+  /* margin: 0; */
+  padding: 3%;
+  /* height: 100px; */
+  width: auto;
+  box-shadow: 0 3px 10px black;
 }
