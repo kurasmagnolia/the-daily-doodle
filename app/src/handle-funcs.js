@@ -1,5 +1,5 @@
-import { fetch9RandomComics } from "./fetch-functions";
-import { render3x3 } from "./dom-helpers";
+import { fetch9RandomComics, getSpecificComic } from "./fetch-functions";
+import { render3x3, renderGeneratedComic } from "./dom-helpers";
 
 export const handleRefreshClick = async () => {
   const comicDiv = document.getElementById("comic-grid");
@@ -56,5 +56,66 @@ export const handleComicClick = (event) => {
       : "We're sorry, but a transcript wasn't available for this comic.";
 
     dialog.showModal(); // Open the modal
+  }
+};
+
+export const handleFavoriteClick = (event) => {
+  const heartIcon = event.currentTarget;
+
+  if (heartIcon.classList.contains("fi-xnlux3-heart")) {
+    heartIcon.classList.remove("fi-xnlux3-heart");
+    heartIcon.classList.add("fi-xnsuxl-heart-solid");
+  } else {
+    heartIcon.classList.remove("fi-xnsuxl-heart-solid");
+    heartIcon.classList.add("fi-xnlux3-heart");
+  }
+
+  // Force a re-render
+  const parent = heartIcon.parentNode;
+  parent.removeChild(heartIcon);
+  parent.appendChild(heartIcon);
+};
+
+// Keep track of the current comic number
+let currentComicNum = 1;
+
+export const handlePrevClick = async (event) => {
+  if (currentComicNum > 1) {
+    currentComicNum -= 1;
+    const comic = await getSpecificComic(currentComicNum);
+    renderComic(comic);
+  } else {
+    alert("No previous comic!");
+  }
+};
+
+export const handleNextClick = async (event) => {
+  currentComicNum += 1;
+  const comic = await getSpecificComic(currentComicNum);
+  renderComic(comic);
+};
+
+export const handleRandomClick = async (event) => {
+  // Get a random comic number between 1 and 2500 (or however many comics are available)
+  const randomComicNum = Math.floor(Math.random() * 2500) + 1;
+  const comic = await getSpecificComic(randomComicNum);
+  currentComicNum = randomComicNum; // Update current comic number
+  renderComic(comic);
+};
+
+export const handleInputChange = async (event) => {
+  const inputValue = event.target.value;
+  if (inputValue) {
+    const comic = await getSpecificComic(inputValue);
+    currentComicNum = inputValue; // Update current comic number
+    renderComic(comic);
+  }
+};
+
+// Helper function to render the comic
+const renderComic = (comic) => {
+  if (comic) {
+    const comicDiv = document.getElementById("comic-gen-img-container");
+    renderGeneratedComic(comicDiv, comic);
   }
 };

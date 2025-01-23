@@ -301,6 +301,10 @@ dialog::backdrop {
   color: #0066cc;
 }
 
+.favorite-icon:hover {
+  cursor: pointer;
+}
+
 /* Modal image */
 .modal-image {
   max-width: 100%;
@@ -436,4 +440,9 @@ ul {
   /* height: 100px; */
   width: auto;
   box-shadow: 0 3px 10px black;
+}
+
+.gen-buttons {
+  display: flex;
+  gap: 1rem;
 }
