@@ -19,9 +19,9 @@ const main = async () => {
   const closeButton = document.querySelector('.close-modal'); // selects the close button
   const favoriteIcon = document.querySelector('.favorite-icon');
   // event listener for the "Refresh" button
-  document
-    .querySelector('.comic-3x3-button')
-    .addEventListener('click', handleRefreshClick);
+  const refreshButton = document.querySelector('.comic-3x3-button');
+
+  refreshButton.addEventListener('click', handleRefreshClick);
 
   // event listener for favorite button press
   favoriteIcon.addEventListener('click', handleFavoriteClick);
@@ -35,9 +35,8 @@ const main = async () => {
   });
 
   // event listeners for comic generator buttons
-  document
-    .querySelector('#prev-btn')
-    .addEventListener('click', handlePrevClick);
+  const prevButton = document.querySelector('#prev-btn');
+  prevButton.addEventListener('click', handlePrevClick);
 
   document
     .getElementById('random-btn')
