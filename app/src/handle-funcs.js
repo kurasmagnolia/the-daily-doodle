@@ -33,7 +33,8 @@ export const handleComicClick = (event) => {
   const img = event.target;
   if (
     img.classList.contains("comic-panel") ||
-    img.classList.contains("featured-comic-img")
+    img.classList.contains("featured-comic-img") ||
+    img.classList.contains("fav-panel")
   ) {
     // gets the clicked comic's image source and alt text
     modalTitle.textContent = img.dataset.title;
@@ -55,7 +56,7 @@ export const handleComicClick = (event) => {
       ? transcript
       : "We're sorry, but a transcript wasn't available for this comic.";
 
-    dialog.showModal(); // Open the modal
+    dialog.showModal(); // opens the modal
   }
 };
 
@@ -79,43 +80,13 @@ export const handleFavoriteClick = (event) => {
 // Keep track of the current comic number
 let currentComicNum = 1;
 
-export const handlePrevClick = async (event) => {
-  if (currentComicNum > 1) {
-    currentComicNum -= 1;
-    const comic = await getSpecificComic(currentComicNum);
-    renderComic(comic);
-  } else {
-    alert("No previous comic!");
-  }
-};
+export const handlePrevClick = async (event) => {};
 
-export const handleNextClick = async (event) => {
-  currentComicNum += 1;
-  const comic = await getSpecificComic(currentComicNum);
-  renderComic(comic);
-};
+export const handleNextClick = async (event) => {};
 
-export const handleRandomClick = async (event) => {
-  // Get a random comic number between 1 and 2500 (or however many comics are available)
-  const randomComicNum = Math.floor(Math.random() * 2500) + 1;
-  const comic = await getSpecificComic(randomComicNum);
-  currentComicNum = randomComicNum; // Update current comic number
-  renderComic(comic);
-};
+export const handleRandomClick = async (event) => {};
 
-export const handleInputChange = async (event) => {
-  const inputValue = event.target.value;
-  if (inputValue) {
-    const comic = await getSpecificComic(inputValue);
-    currentComicNum = inputValue; // Update current comic number
-    renderComic(comic);
-  }
-};
+export const handleInputChange = async (event) => {};
 
 // Helper function to render the comic
-const renderComic = (comic) => {
-  if (comic) {
-    const comicDiv = document.getElementById("comic-gen-img-container");
-    renderGeneratedComic(comicDiv, comic);
-  }
-};
+const renderComic = (comic) => {};

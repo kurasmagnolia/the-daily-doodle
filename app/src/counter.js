@@ -1,65 +1,70 @@
 import { getFeaturedComic } from "./fetch-functions";
 import { renderFeaturedComic } from "./dom-helpers";
+import { getFeaturedComicData, setFeaturedComicData } from "./local-storage";
 
-// Calculate the time remaining until midnight
 const calculateTimeUntilMidnight = () => {
   const now = new Date();
   const nextMidnight = new Date();
   nextMidnight.setHours(24, 0, 0, 0); // Set time to midnight of the next day
-
-  const timeUntilMidnight = nextMidnight - now;
-  return timeUntilMidnight;
+  return nextMidnight - now;
 };
 
-// Schedule the comic reset and countdown timer
 export const scheduleReset = async () => {
-  const timeUntilMidnight = calculateTimeUntilMidnight();
+  const storedData = getFeaturedComicData();
+  const now = new Date();
 
-  // Fetch and render the initial comic
-  try {
-    const initialComic = await getFeaturedComic();
-    if (initialComic) {
-      renderFeaturedComic(initialComic);
-    } else {
-      console.error("Failed to fetch the initial comic.");
+  // Check if stored comic exists and is still valid for today
+  if (
+    storedData &&
+    storedData.timestamp &&
+    new Date(storedData.timestamp).toDateString() === now.toDateString()
+  ) {
+    renderFeaturedComic(storedData.comic); // Render the stored comic
+  } else {
+    try {
+      const newComic = await getFeaturedComic();
+      if (newComic) {
+        renderFeaturedComic(newComic); // Render the new comic
+        setFeaturedComicData(newComic); // Save the new comic and timestamp
+      } else {
+        console.error("Failed to fetch the initial comic.");
+      }
+    } catch (error) {
+      console.error("Error fetching initial comic:", error);
     }
-  } catch (error) {
-    console.error("Error fetching initial comic:", error);
   }
 
   // Start the countdown timer
   updateCountdownTimer();
 
-  // Fetch and render a new featured comic after the timer expires
+  // Schedule the reset for midnight
+  const timeUntilMidnight = calculateTimeUntilMidnight();
   setTimeout(async () => {
     try {
-      console.log("Fetching new featured comic...");
-      const comic = await getFeaturedComic();
-
-      if (comic) {
-        renderFeaturedComic(comic);
-      } else {
-        console.error("Failed to fetch the new comic.");
+      const newComic = await getFeaturedComic();
+      if (newComic) {
+        renderFeaturedComic(newComic);
+        setFeaturedComicData(newComic);
       }
-
-      // Schedule the reset to repeat every 24 hours (86400000 ms)
-      setInterval(async () => {
-        console.log("Fetching new comic for the next day...");
-        const newComic = await getFeaturedComic();
-
-        if (newComic) {
-          renderFeaturedComic(newComic);
-        } else {
-          console.error("Failed to fetch the new comic.");
-        }
-      }, 86400000);
     } catch (error) {
       console.error("Error during comic reset:", error);
     }
+
+    // Schedule resets to repeat every 24 hours
+    setInterval(async () => {
+      try {
+        const newComic = await getFeaturedComic();
+        if (newComic) {
+          renderFeaturedComic(newComic);
+          setFeaturedComicData(newComic);
+        }
+      } catch (error) {
+        console.error("Error fetching the new comic.");
+      }
+    }, 86400000); // 24 hours in milliseconds
   }, timeUntilMidnight);
 };
 
-// Update the countdown timer every second
 const updateCountdownTimer = () => {
   const timerElement = document.querySelector(".timer");
 
@@ -71,26 +76,20 @@ const updateCountdownTimer = () => {
   const updateTimer = () => {
     const timeUntilMidnight = calculateTimeUntilMidnight();
 
-    // Calculate hours, minutes, and seconds
     const hours = Math.floor(timeUntilMidnight / (1000 * 60 * 60));
     const minutes = Math.floor(
       (timeUntilMidnight % (1000 * 60 * 60)) / (1000 * 60)
     );
     const seconds = Math.floor((timeUntilMidnight % (1000 * 60)) / 1000);
 
-    // Update the timer display
     timerElement.textContent = `New Featured Comic in: ${String(hours).padStart(
       2,
       "0"
     )}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   };
 
-  // Initial call to update the timer
   updateTimer();
-
-  // Update the timer every second
-  setInterval(updateTimer, 1000);
+  setInterval(updateTimer, 1000); // Update every second
 };
 
-// Start the schedule
 scheduleReset();
