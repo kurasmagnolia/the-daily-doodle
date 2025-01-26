@@ -21,6 +21,21 @@ body {
   border-bottom: 3px solid #000000;
 }
 
+.footer {
+  background-color: var(--navbar-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* justify-content: space-between; */
+  border-top: 3px solid #000000;
+  margin-top: 5%;
+  height: 45px;
+}
+
+.footer-text {
+  color: white;
+}
+
 .doodle-logo {
   padding: 1rem;
   width: 300px;
@@ -369,12 +384,16 @@ dialog::backdrop {
 .modal-title {
   display: flex;
   justify-content: center;
+  font-family: Marker Felt;
 }
 
 .modal-minor-info {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Modal text */

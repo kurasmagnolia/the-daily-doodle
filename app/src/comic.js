@@ -14,6 +14,7 @@ const main = () => {
   document
     .getElementById('random-btn')
     .addEventListener('click', handleRandomClick);
+  console.log('random test');
 
   document
     .getElementById('next-btn')
