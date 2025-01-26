@@ -1,5 +1,6 @@
 import { fetch9RandomComics, getSpecificComic } from './fetch-functions';
 import { render3x3, renderGeneratedComic } from './dom-helpers';
+import loadingImage from './assets/loading-buffer-circle.png';
 
 export const handleRefreshClick = async () => {
   const comicDiv = document.getElementById('comic-grid');
@@ -12,7 +13,7 @@ export const handleRefreshClick = async () => {
 
   loadingText.textContent = 'Loading!';
   loadingText.className = 'loading-text';
-  circleBuffer.src = '../src/assets/loading-buffer-circle.png';
+  circleBuffer.src = loadingImage;
   circleBuffer.className = 'loader';
   loadingElementsDiv.append(loadingText, circleBuffer);
 

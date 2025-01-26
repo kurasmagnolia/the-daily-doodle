@@ -212,6 +212,7 @@ a {
   color: #ffffff;
   margin: 1%;
   padding: 2px;
+  font-family: Marker Felt;
   /* width: auto; */
 }
 
@@ -222,7 +223,7 @@ a {
   background-color: #333333;
   justify-items: center;
   gap: 1rem;
-  margin-top: 10%;
+  margin-top: 6%;
   margin-bottom: 0;
   /* width: 100px; */
   height: auto;
