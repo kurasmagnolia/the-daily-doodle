@@ -17,6 +17,9 @@ export const renderFeaturedComic = (comic) => {
   comicHeading.className = "featured-h2";
   comicHeading.textContent = `Featured Comic Of The Day: ${comic.title} `;
 
+  comicImage.dataset.title = comic.title;
+  comicImage.dataset.issueNum = comic.num;
+  comicImage.dataset.release = `${comic.month}/${comic.day}/${comic.year}`;
   comicImage.src = comic.img;
   comicImage.alt = comic.alt;
   comicImage.className = "featured-comic-img";
@@ -33,6 +36,9 @@ export const renderGeneratedComic = (comicDiv, comic) => {
   const comicImage = document.createElement("img");
   const comicTitle = document.createElement("h2");
 
+  comicImage.dataset.title = comic.title;
+  comicImage.dataset.issueNum = comic.num;
+  comicImage.dataset.release = `${comic.month}/${comic.day}/${comic.year}`;
   comicImage.id = "comic-gen-img";
   comicImage.src = comic.img;
   comicImage.alt = comic.alt;
@@ -54,40 +60,44 @@ export const render3x3 = (comicDiv, comics) => {
 
     // give elements their attributes and content
     comicImage.dataset.title = comic.title;
+    comicImage.dataset.issueNum = comic.num;
+    comicImage.dataset.release = `${comic.month}/${comic.day}/${comic.year}`;
     comicImage.src = comic.img;
-    comicImage.className = "comic-panel";
     comicImage.alt = comic.alt;
     comicImage.dataset.transcript = comic.transcript;
-    // comicImage.dataset.month = comic.month;
-    // comicImage.dataset.day = comic.day;
-    // comicImage.dataset.year = comic.year;
+    comicImage.className = "comic-panel";
 
-    // append elements to its correct container
-    // comicCell.append(comicImage);
-    // comicDiv.append(comicCell);
+    // append element to its correct container
     comicDiv.append(comicImage);
   });
 };
 
 export const renderFavorites = (favoritesUl, comics) => {
   const comicDiv = document.createElement("div");
-  const comicImg = document.createElement("img");
+  const comicImage = document.createElement("img");
   const comicHeading = document.createElement("h3");
-  const date = document.createElement("p");
-  const idNumber = document.createElement("p");
+  const comicDate = document.createElement("p");
+  const comicIDNumber = document.createElement("p");
 
-  comicImg.src = comics.img;
-  comicImg.alt = comics.alt;
-  comicHeading.textContent = `${comics.title}`;
-  date.textContent = `Release Date: ${comics.month} / ${comics.day} / ${comics.year}`;
-  idNumber.textContent = `Issue #: ${comics.num}`;
+  for (const comic in comics) {
+    comicImage.dataset.title = comic.title;
+    comicImage.dataset.issueNum = comic.num;
+    comicImage.dataset.release = `${comic.month}/${comic.day}/${comic.year}`;
 
-  comicDiv.className = "favorited-comic";
-  comicImg.className = "fav-panel";
-  comicHeading.className = "fav-text";
-  date.className = "fav-text";
-  idNumber.className = "fav-text";
+    comicImage.src = comic.img;
+    comicImage.alt = comic.alt;
+    comicHeading.textContent = `${comic.title}`;
+    comicDate.textContent = `Release Date: ${comic.month}/${comic.day}/${comic.year}`;
+    comicIDNumber.textContent = `Issue #: ${comic.num}`;
 
-  comicDiv.append(comicHeading, comicImg, date, idNumber);
-  favoritesUl.append(comicDiv);
+    // apply a class to each element
+    comicDiv.className = "favorited-comic";
+    comicImage.className = "fav-panel";
+    comicHeading.className = "fav-text";
+    comicDate.className = "fav-text";
+    comicIDNumber.className = "fav-text";
+
+    comicDiv.append(comicHeading, comicImage, comicDate, comicIDNumber);
+    favoritesUl.append(comicDiv);
+  }
 };

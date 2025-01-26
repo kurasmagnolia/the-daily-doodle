@@ -47,6 +47,10 @@ export const fetch9RandomComics = async () => {
       const latestComic = await getLatestComic(); // gets latest comic for stopping point
       const randomGen = Math.floor(Math.random() * latestComic.num); // generates random number
       const comic = await getSpecificComic(randomGen); // fetch one comic
+      if (comics.some((existingComic) => existingComic.num === comic.num)) {
+        i--;
+        continue;
+      }
       comics.push(comic); // adds it to the array
     } catch (error) {
       console.warn(error);

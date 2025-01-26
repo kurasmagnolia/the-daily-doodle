@@ -64,6 +64,11 @@
           </div>
         </div>
 
+        <div class="comics-3x3-div">
+          <div class="loading-elements"></div>
+          <div id="comic-grid" class="comic-grid"></div>
+        </div>
+
         <div class="modal-container">
           <dialog id="selected-comic-modal" class="selected-comic-modal">
             <form
@@ -73,8 +78,14 @@
             ></form>
             <div class="modal-content">
               <button class="close-modal" autofocus>X</button>
+              <div class="modal-comic-top-info">
+                <h3 class="modal-title"></h3>
+                <div class="modal-minor-info">
+                  <h4 class="modal-issue"></h4>
+                  <h4 class="modal-release"></h4>
+                </div>
+              </div>
               <img class="modal-image" src="" alt="" />
-              <h3 class="modal-title"></h3>
               <p class="modal-transcript"></p>
               <button class="favorite-button">
                 <svg
@@ -97,12 +108,6 @@
             </div>
           </dialog>
         </div>
-
-        <div class="comics-3x3-div">
-          <div class="loading-elements"></div>
-          <div id="comic-grid" class="comic-grid"></div>
-        </div>
-        <!-- <div class="grid"></div> -->
       </section>
     </main>
     <!-- MAIN END -->

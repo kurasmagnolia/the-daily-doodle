@@ -29,18 +29,22 @@ export const handleComicClick = (event) => {
   const dialog = document.querySelector("dialog"); // selects the dialog element
   const modalTitle = document.querySelector(".modal-title");
   const modalImage = document.querySelector(".modal-image"); // selects the image inside the modal
+  const modalIssue = document.querySelector(".modal-issue");
+  const modalRelease = document.querySelector(".modal-release");
   const modalTranscript = document.querySelector(".modal-transcript"); // selects the context inside the modal
-
   const img = event.target;
+
   if (
-    img.classList.contains("comic-panel") ||
     img.classList.contains("featured-comic-img") ||
+    img.classList.contains("comic-panel") ||
+    img.classList.contains("comic-gen-img") ||
     img.classList.contains("fav-panel")
   ) {
     // gets the clicked comic's image source and alt text
-    modalTitle.textContent = img.dataset.title;
-    modalImage.src = img.src; // Extract URL from 'backgroundImage' CSS property
-    modalTranscript.textContent = img.dataset.transcript; // Use custom data-transcript attribute
+    modalTitle.textContent = `Comic Title: ${img.dataset.title}`;
+    modalImage.src = img.src;
+    modalIssue.textContent = `Issue #: ${img.dataset.issueNum}`;
+    modalRelease.textContent = `Release Date: ${img.dataset.release}`;
 
     // gets the transcript from the data-transcript attribute
     const transcript = img.dataset.transcript;
@@ -52,7 +56,7 @@ export const handleComicClick = (event) => {
       existingTranscript.remove();
     }
 
-    // Create and append a new <p> element for the transcript
+    // create and append a new <p> element for the transcript
     modalTranscript.textContent = transcript
       ? transcript
       : "We're sorry, but a transcript wasn't available for this comic.";
