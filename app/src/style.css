@@ -33,6 +33,14 @@ body {
   font-size: 24px;
 }
 
+h2 {
+  font-family: Marker Felt;
+}
+
+a {
+  font-family: Marker Felt;
+}
+
 .navbar-link {
   text-decoration: none;
   color: #ffffff;
@@ -62,11 +70,12 @@ body {
   padding: 1%;
   /* height: 100px; */
   width: auto;
+  box-shadow: 0 6px 10px black;
 }
 
 .featured-h2 {
   color: #ffffff;
-  font-family: Comica;
+  font-family: Marker Felt;
 }
 
 .featured-comic-container {
@@ -100,11 +109,15 @@ body {
   padding: 10px;
   max-width: fit-content;
   justify-content: flex-end;
+  box-shadow: 0 6px 10px black;
 }
 .timer-and-img {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .timer {
@@ -169,6 +182,9 @@ body {
 
 .loading-text {
   font-size: 25px;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .comic-panel {
@@ -178,8 +194,13 @@ body {
   background-position: center;
   max-width: 265px;
   max-height: auto;
-  border: 5px solid #000000;
+  border: 3px solid #000000;
   cursor: pointer;
+  transition: transform 1.2s ease, box-shadowing 0.5 ease;
+}
+.comic-panel:hover {
+  transform: scale(1.1);
+  box-shadow: 10px 15px 20px black;
 }
 
 .comic-3x3-button {
@@ -190,6 +211,14 @@ body {
   color: #ffffff;
   box-shadow: 0 6px 10px black;
   cursor: pointer;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
+  transition: transform 0.7s ease;
+}
+
+.comic-3x3-button:hover {
+  transform: scale(1.2);
 }
 
 .refresh-h3-container {
@@ -211,6 +240,7 @@ body {
   color: #ffffff;
   margin: 1%;
   padding: 2px;
+  font-family: Marker Felt;
   /* width: auto; */
 }
 
@@ -221,13 +251,14 @@ body {
   background-color: #333333;
   justify-items: center;
   gap: 1rem;
-  margin-top: 10%;
+  margin-top: 6%;
   margin-bottom: 0;
   /* width: 100px; */
   height: auto;
   width: 90%;
   padding-left: 10px;
   padding-right: 10px;
+  box-shadow: 0 6px 10px black;
 }
 
 .comic-grid {
@@ -243,6 +274,9 @@ body {
   width: 100%;
   font-size: 1.15rem;
   margin: 0 auto;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .comics-3x3-section {
@@ -348,6 +382,9 @@ dialog::backdrop {
   font-size: 18px;
   color: #000000;
   text-align: center;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Start of comic gen css */
@@ -361,6 +398,7 @@ dialog::backdrop {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding: 5%;
 }
 
 #comic-gen-name {
@@ -371,6 +409,8 @@ dialog::backdrop {
   background-color: #333333;
   text-align: center;
   justify-content: center;
+  box-shadow: 0 6px 6px black;
+
   color: #ffffff;
   /* margin: 0; */
   padding: 1%;
@@ -387,12 +427,17 @@ dialog::backdrop {
 .comic-gen-img-container {
   text-align: center;
   margin-top: 20px;
+  border: 4px solid;
+  border-color: black;
+  padding: 3px;
 }
 
 #comic-gen-img {
   max-width: 100%;
   height: auto;
   margin-top: 10px;
+  border: 5px solid;
+  border-color: #000000;
 }
 
 #comic-gen-title {
@@ -450,7 +495,7 @@ li {
 .fav-text {
   /* background-color: #333333; */
   color: #0f0303;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Marker Felt;
 }
 
 ul {
@@ -502,4 +547,58 @@ ul {
   /* height: 100px; */
   width: auto;
   box-shadow: 0 3px 10px black;
+}
+
+#random-btn {
+  margin-bottom: 10px;
+  background-color: #333333;
+  border: 3px solid #000000;
+  padding: 10px;
+  color: #ffffff;
+  box-shadow: 0 6px 10px black;
+  cursor: pointer;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
+  transition: transform 0.7s ease;
+}
+
+#random-btn:hover {
+  transform: scale(1.1);
+}
+
+#next-btn {
+  margin-bottom: 10px;
+  background-color: #333333;
+  border: 3px solid #000000;
+  padding: 10px;
+  color: #ffffff;
+  box-shadow: 0 6px 10px black;
+  cursor: pointer;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
+  transition: transform 0.7s ease;
+}
+
+#next-btn:hover {
+  transform: scale(1.1);
+}
+
+#prev-btn {
+  margin-bottom: 10px;
+  background-color: #333333;
+  border: 3px solid #000000;
+  padding: 10px;
+  color: #ffffff;
+  box-shadow: 0 6px 10px black;
+  cursor: pointer;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
+  transition: transform 0.7s ease;
+}
+
+#prev-btn:hover {
+  transform: scale(1.1);
 }

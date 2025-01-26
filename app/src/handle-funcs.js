@@ -35,9 +35,8 @@ export const handleComicClick = (event) => {
   const img = event.target;
 
   if (
-    img.classList.contains("featured-comic-img") ||
     img.classList.contains("comic-panel") ||
-    img.classList.contains("comic-gen-img") ||
+    img.classList.contains("featured-comic-img") ||
     img.classList.contains("fav-panel")
   ) {
     // gets the clicked comic's image source and alt text
@@ -75,6 +74,13 @@ export const handleComicClick = (event) => {
 //   //     heartIcon.classList.remove("fi-xnsuxl-heart-solid");
 //   //     heartIcon.classList.add("fi-xnlux3-heart");
 //   //   }
+// if (heartIcon.classList.contains('fi-xnlux3-heart')) {
+//   heartIcon.classList.remove('fi-xnlux3-heart');
+//   heartIcon.classList.add('fi-xnsuxl-heart-solid');
+// } else {
+//   heartIcon.classList.remove('fi-xnsuxl-heart-solid');
+//   heartIcon.classList.add('fi-xnlux3-heart');
+// }
 
 //   // Force a re-render
 //   const parent = heartIcon.parentNode;
@@ -85,7 +91,17 @@ export const handleComicClick = (event) => {
 // Keep track of the current comic number
 let currentComicNum = 1;
 
-export const handlePrevClick = async (event) => {};
+export const handlePrevClick = async (event) => {
+  console.log(event.target);
+  console.log("test");
+  if (currentComicNum > 1) {
+    currentComicNum -= 1;
+    const comic = await getSpecificComic(currentComicNum);
+    renderComic(comic);
+  } else {
+    alert("No previous comic!");
+  }
+};
 
 export const handleNextClick = async (event) => {};
 
@@ -94,4 +110,10 @@ export const handleRandomClick = async (event) => {};
 export const handleInputChange = async (event) => {};
 
 // Helper function to render the comic
-const renderComic = (comic) => {};
+// const renderComic = (comic) => {};
+const renderComic = (comic) => {
+  if (comic) {
+    const comicDiv = document.getElementById("comic-gen-img-container");
+    renderGeneratedComic(comicDiv, comic);
+  }
+};
