@@ -21,7 +21,9 @@ const main = () => {
     .addEventListener('click', handleNextClick);
 
   // event listener for the input field
-  document.getElementById('input').addEventListener('input', handleInputChange);
+  document
+    .getElementById('submit-btn')
+    .addEventListener('click', handleInputChange);
 };
 
 main();
