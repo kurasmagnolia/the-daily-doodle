@@ -70,6 +70,7 @@ a {
   padding: 1%;
   /* height: 100px; */
   width: auto;
+  box-shadow: 0 6px 10px black;
 }
 
 .featured-h2 {
@@ -108,11 +109,15 @@ a {
   padding: 10px;
   max-width: fit-content;
   justify-content: flex-end;
+  box-shadow: 0 6px 10px black;
 }
 .timer-and-img {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .timer {
@@ -179,8 +184,13 @@ a {
   background-position: center;
   max-width: 265px;
   max-height: auto;
-  border: 5px solid #000000;
+  border: 3px solid #000000;
   cursor: pointer;
+  transition: transform 1.2s ease, box-shadowing 0.5 ease;
+}
+.comic-panel:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 7px black;
 }
 
 .comic-3x3-button {
@@ -191,6 +201,14 @@ a {
   color: #ffffff;
   box-shadow: 0 6px 10px black;
   cursor: pointer;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
+  transition: transform 0.7s ease;
+}
+
+.comic-3x3-button:hover {
+  transform: scale(1.2);
 }
 
 .refresh-h3-container {
@@ -230,6 +248,7 @@ a {
   width: 90%;
   padding-left: 10px;
   padding-right: 10px;
+  box-shadow: 0 6px 10px black;
 }
 
 .comic-grid {
@@ -245,6 +264,9 @@ a {
   width: 100%;
   font-size: 1.15rem;
   margin: 0 auto;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .comics-3x3-section {
@@ -338,6 +360,9 @@ dialog::backdrop {
   font-size: 18px;
   color: #000000;
   text-align: center;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Start of comic gen css */
