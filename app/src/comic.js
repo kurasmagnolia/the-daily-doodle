@@ -14,13 +14,16 @@ const main = () => {
   document
     .getElementById('random-btn')
     .addEventListener('click', handleRandomClick);
+  console.log('random test');
 
   document
     .getElementById('next-btn')
     .addEventListener('click', handleNextClick);
 
   // event listener for the input field
-  document.getElementById('input').addEventListener('input', handleInputChange);
+  document
+    .getElementById('submit-btn')
+    .addEventListener('click', handleInputChange);
 };
 
 main();

@@ -1,4 +1,4 @@
-const comicsUrl = "https://xkcd.vercel.app/?comic=latest";
+const comicsUrl = 'https://xkcd.vercel.app/?comic=latest';
 
 export const getLatestComic = async () => {
   try {
@@ -59,6 +59,18 @@ export const fetch9RandomComics = async () => {
   }
   console.log(comics);
   return comics; // returns the array of comic objects
+};
+
+export const fetchRandomComic = async () => {
+  try {
+    const latestComic = await getLatestComic(); // gets latest comic for stopping point
+    const randomGen = Math.floor(Math.random() * latestComic.num); // generates random number
+    const comic = await getSpecificComic(randomGen); // fetch one comic
+    return comic; // adds it to the array
+  } catch (error) {
+    console.warn(error);
+    return null;
+  }
 };
 
 export const getFeaturedComic = async () => {
