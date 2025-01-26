@@ -69,13 +69,13 @@ export const handleComicClick = (event) => {
 //   //     heartIcon.classList.remove("fi-xnsuxl-heart-solid");
 //   //     heartIcon.classList.add("fi-xnlux3-heart");
 //   //   }
-if (heartIcon.classList.contains('fi-xnlux3-heart')) {
-  heartIcon.classList.remove('fi-xnlux3-heart');
-  heartIcon.classList.add('fi-xnsuxl-heart-solid');
-} else {
-  heartIcon.classList.remove('fi-xnsuxl-heart-solid');
-  heartIcon.classList.add('fi-xnlux3-heart');
-}
+// if (heartIcon.classList.contains('fi-xnlux3-heart')) {
+//   heartIcon.classList.remove('fi-xnlux3-heart');
+//   heartIcon.classList.add('fi-xnsuxl-heart-solid');
+// } else {
+//   heartIcon.classList.remove('fi-xnsuxl-heart-solid');
+//   heartIcon.classList.add('fi-xnlux3-heart');
+// }
 
 //   // Force a re-render
 //   const parent = heartIcon.parentNode;
@@ -87,6 +87,7 @@ if (heartIcon.classList.contains('fi-xnlux3-heart')) {
 let currentComicNum = 1;
 
 export const handlePrevClick = async (event) => {
+  console.log(event.target);
   console.log('test');
   if (currentComicNum > 1) {
     currentComicNum -= 1;
@@ -104,7 +105,7 @@ export const handleRandomClick = async (event) => {};
 export const handleInputChange = async (event) => {};
 
 // Helper function to render the comic
-const renderComic = (comic) => {};
+// const renderComic = (comic) => {};
 const renderComic = (comic) => {
   if (comic) {
     const comicDiv = document.getElementById('comic-gen-img-container');
