@@ -11,7 +11,7 @@ const getLocalStorageKey = (key) => {
   }
 };
 
-// Store the featured comic and its timestamp
+// store the featured comic and its timestamp
 export const setFeaturedComicData = (comic) => {
   const data = {
     comic,
@@ -20,7 +20,7 @@ export const setFeaturedComicData = (comic) => {
   setLocalStorageKey("featuredComic", data);
 };
 
-// Retrieve the featured comic and timestamp
+// retrieve the featured comic and timestamp
 export const getFeaturedComicData = () => {
   return getLocalStorageKey("featuredComic");
 };

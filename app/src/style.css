@@ -115,7 +115,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  font-family: 'Itim', serif;
+  font-family: "Itim", serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -182,7 +182,7 @@ a {
 
 .loading-text {
   font-size: 25px;
-  font-family: 'Itim', serif;
+  font-family: "Itim", serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -211,7 +211,7 @@ a {
   color: #ffffff;
   box-shadow: 0 6px 10px black;
   cursor: pointer;
-  font-family: 'Itim', serif;
+  font-family: "Itim", serif;
   font-weight: 400;
   font-style: normal;
   transition: transform 0.7s ease;
@@ -274,7 +274,7 @@ a {
   width: 100%;
   font-size: 1.15rem;
   margin: 0 auto;
-  font-family: 'Itim', serif;
+  font-family: "Itim", serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -350,16 +350,39 @@ dialog::backdrop {
 
 .heart-icon {
   background-color: none;
+  transition: transform 0.2s ease-in-out, color 0.3s ease, filter 0.3s ease;
   fill: none;
   stroke: grey;
   cursor: pointer;
 }
 
 .heart-icon.favorited {
-  fill: red;
+  fill: #e0245e;
+  stroke: #e0245e;
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px rgba(224, 36, 94, 0.7));
+  animation: bounce 0.5s ease-out;
 }
 
-/* Modal image */
+@keyframes bounce {
+  0% {
+    transform: scale(1.2);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/* modal image */
 .modal-image {
   max-width: 100%;
   max-height: 70vh;
@@ -377,18 +400,17 @@ dialog::backdrop {
   gap: 0.5rem;
 }
 
-/* Modal text */
+/* nodal text */
 .modal-transcript {
   font-size: 18px;
   color: #000000;
   text-align: center;
-  font-family: 'Itim', serif;
+  font-family: "Itim", serif;
   font-weight: 400;
   font-style: normal;
 }
 
-/* Start of comic gen css */
-
+/* start of comic gen css */
 #comic-gen-container {
   border-color: #10b25e;
   border: 10px;
@@ -557,7 +579,7 @@ ul {
   color: #ffffff;
   box-shadow: 0 6px 10px black;
   cursor: pointer;
-  font-family: 'Itim', serif;
+  font-family: "Itim", serif;
   font-weight: 400;
   font-style: normal;
   transition: transform 0.7s ease;
@@ -575,7 +597,7 @@ ul {
   color: #ffffff;
   box-shadow: 0 6px 10px black;
   cursor: pointer;
-  font-family: 'Itim', serif;
+  font-family: "Itim", serif;
   font-weight: 400;
   font-style: normal;
   transition: transform 0.7s ease;
@@ -593,7 +615,7 @@ ul {
   color: #ffffff;
   box-shadow: 0 6px 10px black;
   cursor: pointer;
-  font-family: 'Itim', serif;
+  font-family: "Itim", serif;
   font-weight: 400;
   font-style: normal;
   transition: transform 0.7s ease;

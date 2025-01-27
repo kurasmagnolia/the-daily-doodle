@@ -75,10 +75,10 @@ export const render3x3 = (comicDiv, comics) => {
 
 export const renderFavorites = (favoritesUl, comics) => {
   const comicDiv = document.createElement("div");
-  const comicImg = document.createElement("img");
+  const comicImage = document.createElement("img");
   const comicHeading = document.createElement("h3");
-  const date = document.createElement("p");
-  const idNumber = document.createElement("p");
+  const comicDate = document.createElement("p");
+  const comicIDNumber = document.createElement("p");
 
   for (const comic in comics) {
     comicImage.dataset.title = comic.title;
@@ -92,10 +92,10 @@ export const renderFavorites = (favoritesUl, comics) => {
     comicIDNumber.textContent = `Issue #: ${comic.num}`;
 
     comicDiv.className = "favorited-comic";
-    comicImg.className = "fav-panel";
+    comicImage.className = "fav-panel";
     comicHeading.className = "fav-text";
-    date.className = "fav-text";
-    idNumber.className = "fav-text";
+    comicDate.className = "fav-text";
+    comicIDNumber.className = "fav-text";
 
     comicDiv.append(comicHeading, comicImage, comicDate, comicIDNumber);
     favoritesUl.append(comicDiv);
