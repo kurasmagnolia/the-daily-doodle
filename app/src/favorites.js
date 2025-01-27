@@ -1,7 +1,7 @@
 import {
   handleComicClick,
-  handleRefreshClick,
   handleFavoriteClick,
+  handleFavoriteComicClick,
   updateHeartIcons,
 } from "./handle-funcs";
 import { getComics } from "./local-storage"; // Import the getComics function
@@ -10,10 +10,6 @@ import { renderFavorites } from "./dom-helpers"; // Import renderFavorites funct
 const main = async () => {
   const dialog = document.querySelector("dialog"); // selects the dialog element
   const closeButton = document.querySelector(".close-modal"); // selects the close button
-  const refreshButton = document.querySelector(".comic-3x3-button");
-
-  // Event listener for the "Refresh" button
-  refreshButton.addEventListener("click", handleRefreshClick);
 
   // Event listener for favorite button press
   document.addEventListener("click", (event) => {
@@ -24,7 +20,7 @@ const main = async () => {
   });
 
   // Click event listeners for dynamically generated comic panels
-  document.addEventListener("click", handleComicClick);
+  document.addEventListener("click", handleFavoriteComicClick);
 
   // Event listener for the close button
   closeButton.addEventListener("click", () => {

@@ -39,7 +39,8 @@ export const renderGeneratedComic = (comicDiv, comic) => {
   comicImage.dataset.title = comic.title;
   comicImage.dataset.issueNum = comic.num;
   comicImage.dataset.release = `${comic.month}/${comic.day}/${comic.year}`;
-  comicImage.id = "comic-gen-img";
+  comicImage.id = comic.num;
+  comicImage.className = "comic-gen-img";
   comicImage.src = comic.img;
   comicImage.alt = comic.alt;
 
@@ -74,30 +75,50 @@ export const render3x3 = (comicDiv, comics) => {
 };
 
 export const renderFavorites = (favoritesUl, comics) => {
-  const comicDiv = document.createElement("div");
-  const comicImage = document.createElement("img");
-  const comicHeading = document.createElement("h3");
-  const comicDate = document.createElement("p");
-  const comicIDNumber = document.createElement("p");
+  // Clear the list before rendering the new favorites
+  favoritesUl.innerHTML = "";
 
-  for (const comic in comics) {
-    comicImage.dataset.title = comic.title;
-    comicImage.dataset.issueNum = comic.num;
-    comicImage.dataset.release = `${comic.month}/${comic.day}/${comic.year}`;
+  // Loop through each comic and create the corresponding <li> element
+  for (const comicNum in comics) {
+    const comic = comics[comicNum];
 
-    comicImage.src = comic.img;
-    comicImage.alt = comic.alt;
-    comicHeading.textContent = `${comic.title}`;
-    comicDate.textContent = `Release Date: ${comic.month}/${comic.day}/${comic.year}`;
-    comicIDNumber.textContent = `Issue #: ${comic.num}`;
+    // Create the <li> element
+    const li = document.createElement("li");
+    li.className = "favorite-comic-item"; // Add the appropriate class
+    li.dataset.comicId = comic.num; // Add the comic ID as a data attribute
 
-    comicDiv.className = "favorited-comic";
-    comicImage.className = "fav-panel";
-    comicHeading.className = "fav-text";
-    comicDate.className = "fav-text";
-    comicIDNumber.className = "fav-text";
+    // Create the inner div container
+    const comicDiv = document.createElement("div");
+    comicDiv.className = "favorited-comic"; // Add the class for the comic container
 
+    // Create the comic title (h3)
+    const comicHeading = document.createElement("h3");
+    comicHeading.className = "fav-text"; // Add the appropriate class
+    comicHeading.textContent = comic.title || "Unknown Title"; // Set the title text
+
+    // Create the comic image (img)
+    const comicImage = document.createElement("img");
+    comicImage.className = "fav-panel"; // Add the class for the image
+    comicImage.src = comic.img || "default-image-url"; // Set the image source (use a default if none)
+    comicImage.alt = comic.alt || "No image description"; // Set the alt text for the image
+
+    // Create the comic release date (p) using the release from favorites
+    const comicDate = document.createElement("p");
+    comicDate.className = "fav-text"; // Add the class for the text
+    comicDate.textContent = `Release Date: ${comic.release || "Unknown Date"}`; // Set the date text
+
+    // Create the comic issue number (p)
+    const comicIDNumber = document.createElement("p");
+    comicIDNumber.className = "fav-text"; // Add the class for the text
+    comicIDNumber.textContent = `Issue #: ${comic.num}`; // Set the issue number text
+
+    // Append the heading, image, date, and issue number to the comic div
     comicDiv.append(comicHeading, comicImage, comicDate, comicIDNumber);
-    favoritesUl.append(comicDiv);
+
+    // Append the comic div to the <li> element
+    li.appendChild(comicDiv);
+
+    // Append the <li> element to the favorites list (ul)
+    favoritesUl.appendChild(li);
   }
 };
