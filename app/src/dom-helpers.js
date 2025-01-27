@@ -1,10 +1,3 @@
-import {
-  getLatestComic,
-  getSpecificComic,
-  getFeaturedComic,
-  fetch9RandomComics,
-} from "./fetch-functions";
-
 export const renderFeaturedComic = (comic) => {
   const comicImgDiv = document.querySelector(".featured-comic-container");
   const comicTitleDiv = document.querySelector(".featured-comic-title");
