@@ -19,6 +19,22 @@ body {
   align-items: center;
   justify-content: space-between;
   border-bottom: 3px solid #000000;
+  flex-wrap: nowrap;
+}
+
+.footer {
+  background-color: var(--navbar-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* justify-content: space-between; */
+  border-top: 3px solid #000000;
+  margin-top: 5%;
+  height: 45px;
+}
+
+.footer-text {
+  color: white;
 }
 
 .doodle-logo {
@@ -28,9 +44,13 @@ body {
 }
 
 .navbar-items {
+  display: flex;
+  flex-wrap: nowrap;
   gap: 30px;
-  padding-top: 1rem;
+  padding: 10px;
   font-size: 24px;
+  align-items: center;
+  padding-right: 35px;
 }
 
 h2 {
@@ -44,13 +64,19 @@ a {
 .navbar-link {
   text-decoration: none;
   color: #ffffff;
-  padding-right: 80px;
-  padding-top: 28px;
+  /* padding-right: 80px; */
+  padding-top: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-link:hover {
+  transform: scale(1.1);
 }
 
 .navbar-link:hover {
   color: #0066cc;
   cursor: pointer;
+  max-width: fit-content;
 }
 
 .featured-comic-header {
@@ -196,7 +222,7 @@ a {
   max-height: auto;
   border: 3px solid #000000;
   cursor: pointer;
-  transition: transform 1.2s ease, box-shadowing 0.5 ease;
+  transition: transform 0.2s ease-in-out, box-shadowing 0.5 ease;
 }
 .comic-panel:hover {
   transform: scale(1.1);
@@ -392,12 +418,16 @@ dialog::backdrop {
 .modal-title {
   display: flex;
   justify-content: center;
+  font-family: Marker Felt;
 }
 
 .modal-minor-info {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-family: 'Itim', serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* nodal text */

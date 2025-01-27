@@ -1,4 +1,8 @@
-import { fetch9RandomComics, getSpecificComic } from "./fetch-functions";
+import {
+  fetch9RandomComics,
+  getSpecificComic,
+  fetchRandomComic,
+} from "./fetch-functions";
 import { render3x3, renderGeneratedComic } from "./dom-helpers";
 import { getComics, setComics, unfavoriteComic } from "./local-storage";
 import loadingImage from "./assets/loading-buffer-circle.png";
@@ -143,9 +147,37 @@ export const handlePrevClick = async (event) => {
   }
 };
 
-export const handleNextClick = async (event) => {};
+export const handleNextClick = async (event) => {
+  console.log(event.target);
+  console.log("Next button clicked");
 
-export const handleRandomClick = async (event) => {};
+  currentComicNum += 1;
+
+  try {
+    const comic = await getSpecificComic(currentComicNum);
+    if (comic) {
+      renderComic(comic);
+    } else {
+      alert("Failed to fetch the next comic. Please try again");
+    }
+  } catch (error) {
+    console.warn("Error fetch the next comic. Please try again", error);
+  }
+};
+
+export const handleRandomClick = async (event) => {
+  try {
+    const comic = await fetchRandomComic();
+    if (comic) {
+      renderComic(comic);
+      currentComicNum = comic.num;
+    } else {
+      alert("Failed to fetch the random comic. Please try again");
+    }
+  } catch (error) {
+    console.warn("Error fetch the random comic. please try again", error);
+  }
+};
 
 export const handleInputChange = async (event) => {};
 
