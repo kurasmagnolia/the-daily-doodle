@@ -1,3 +1,5 @@
+import { renderFavorites } from "./dom-helpers";
+
 const setLocalStorageKey = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
@@ -38,11 +40,21 @@ export const getComics = () => {
 };
 
 export const unfavoriteComic = (comicNum) => {
-  const favorites = getComics(); // retrieves current favorites
+  const favoritesUL = document.querySelector(".favorites-list");
+  const favorites = getComics(); // Retrieve current favorites from localStorage
 
   if (favorites[comicNum]) {
-    delete favorites[comicNum]; // Remove the comic by its number
-    setComics(favorites); // Update local storage
+    // Remove the comic from favorites in localStorage
+    delete favorites[comicNum];
+    setComics(favorites); // Update the favorites in localStorage
+
+    console.log(`Comic ${comicNum} removed from favorites.`);
+
+    // Clear the current list in the DOM before re-rendering
+    favoritesUL.innerHTML = ""; // Clear the existing list in the DOM
+
+    // Re-render the remaining comics in the list (without the removed one)
+    renderFavorites(favoritesUL, favorites); // Re-render with updated favorites
   } else {
     console.warn(`Comic ${comicNum} is not in favorites.`);
   }

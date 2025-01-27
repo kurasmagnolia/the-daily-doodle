@@ -87,6 +87,11 @@ export const handleFavoriteClick = (event) => {
   const heartIcon = heartButton.querySelector(".heart-icon");
   const comicId = heartButton.dataset.comicId; // Each heart button should have its unique comic ID
 
+  if (!comicId) {
+    console.error("Comic ID is undefined. Cannot add/remove favorite.");
+    return;
+  }
+
   // Get the title, image, and additional info for this specific comic
   const modalContent = document.querySelector(".modal-content");
   const comicTitle =
@@ -95,7 +100,10 @@ export const handleFavoriteClick = (event) => {
   const comicAlt =
     modalContent.querySelector(".modal-image").alt || "No image description"; // Ensure alt text is captured
   const comicDate =
-    modalContent.querySelector(".modal-release").textContent || "Unknown Date"; // Extract date if available
+    modalContent.querySelector(".modal-release").textContent || "Unknown Date";
+  const comicTranscript =
+    modalContent.querySelector(".modal-transcript").textContent ||
+    "No transcript available";
 
   // Get the favorites object from localStorage
   const favorites = getComics();
@@ -111,15 +119,18 @@ export const handleFavoriteClick = (event) => {
     // Add to favorites
     favorites[comicId] = {
       num: comicId,
-      title: comicTitle.slice(12),
+      title: comicTitle.slice(12), // Remove "Title: " prefix if present
       img: comicImage,
       alt: comicAlt,
-      release: comicDate.slice(14), // Store the data-release (date)
+      release: comicDate.slice(14), // Remove "Release Date: " prefix if present
+      transcript: comicTranscript,
     };
     setComics(favorites); // Save the updated favorites to localStorage
     heartIcon.classList.add("favorited"); // Add the heart icon highlight
     console.log(`Comic ${comicId} added to favorites.`);
   }
+
+  // Optionally, you can re-render the "My Favorites" list if needed.
 };
 
 export const updateHeartIcons = () => {
@@ -218,12 +229,12 @@ export const handleInputSubmit = async (event) => {
 };
 
 export const handleFavoriteComicClick = (event) => {
-  const clickedComic = event.target.closest(".favorite-comic-item");
+  const clickedComic = event.target.closest(".favorite-comic-item"); // Clicked on a comic item
   if (!clickedComic) return; // If no comic item is clicked, return early
 
-  const comicId = clickedComic.dataset.comicId; // Get the comic ID from the data attribute
+  const comicId = clickedComic.dataset.comicId; // Get the comic ID from the data attribute on the clicked comic item
 
-  // Get the favorites from localStorage
+  // Get the favorites from localStorage (if available)
   const favorites = getComics(); // Fetch favorites from localStorage
 
   // Get the comic from favorites based on the comicId
@@ -235,8 +246,9 @@ export const handleFavoriteComicClick = (event) => {
   const modalImage = modal.querySelector(".modal-image");
   const modalIssue = modal.querySelector(".modal-issue");
   const modalRelease = modal.querySelector(".modal-release");
+  const modalTranscript = modal.querySelector(".modal-transcript");
   const heartButton = modal.querySelector(".favorite-button");
-  const modalTranscript = modal.querySelector(".modal-transcript"); // Assuming the transcript element exists
+  const heartIcon = heartButton.querySelector(".heart-icon");
 
   if (comic) {
     // Comic data found in favorites, update modal content
@@ -248,11 +260,23 @@ export const handleFavoriteComicClick = (event) => {
       comic.release || "Unknown Date"
     }`; // Comic release date
 
-    // Set heart button as favorited
-    heartButton.classList.add("favorited"); // Add 'favorited' class to heart button
+    // Set the transcript if it exists
+    const modalTranscript = modal.querySelector(".modal-transcript");
+    if (comic.transcript) {
+      modalTranscript.textContent = comic.transcript;
+      modalTranscript.style.display = "block"; // Show the transcript if it exists
+    } else {
+      modalTranscript.textContent = "No transcript available.";
+      modalTranscript.style.display = "block"; // Show placeholder if no transcript exists
+    }
 
-    // Add the transcript if available
-    modalTranscript.textContent = comic.transcript || "No transcript available"; // Show transcript if exists
+    // Update the heart button
+    heartButton.dataset.comicId = comic.num; // Set the correct comic ID on the heart button
+    if (favorites[comic.num]) {
+      heartButton.classList.add("favorited"); // Highlight the heart button if the comic is a favorite
+    } else {
+      heartButton.classList.remove("favorited"); // Remove highlight if not a favorite
+    }
   } else {
     // Comic not found in favorites, populate modal with default values
     modalTitle.textContent = "Unknown Title";
@@ -261,11 +285,14 @@ export const handleFavoriteComicClick = (event) => {
     modalIssue.textContent = `Issue #: N/A`;
     modalRelease.textContent = `Release Date: Unknown Date`;
 
-    // Ensure heart button is not favorited
-    heartButton.classList.remove("favorited");
+    // Hide transcript for unfound comics
+    const modalTranscript = modal.querySelector(".modal-transcript");
+    modalTranscript.textContent = "No transcript available.";
+    modalTranscript.style.display = "block"; // Show placeholder
 
-    // Ensure no transcript is shown
-    modalTranscript.textContent = "No transcript available";
+    // Ensure heart button is not favorited
+    heartButton.dataset.comicId = ""; // Clear any existing ID
+    heartButton.classList.remove("favorited");
   }
 
   // Open the modal

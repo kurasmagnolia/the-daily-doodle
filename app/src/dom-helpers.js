@@ -76,7 +76,7 @@ export const render3x3 = (comicDiv, comics) => {
 
 export const renderFavorites = (favoritesUl, comics) => {
   // Clear the list before rendering the new favorites
-  favoritesUl.innerHTML = "";
+  favoritesUl.innerHTML = ""; // This ensures the DOM is cleaned up before rendering new favorites
 
   // Loop through each comic and create the corresponding <li> element
   for (const comicNum in comics) {

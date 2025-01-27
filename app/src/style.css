@@ -576,6 +576,10 @@ ul {
   overflow-y: scroll;
 }
 
+.fav-panel:hover {
+  cursor: pointer;
+}
+
 #user-input {
   border: 3px solid;
   gap: 5px;
