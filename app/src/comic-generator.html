@@ -30,10 +30,27 @@
     </nav>
     <main>
       <div id="comic-gen-container">
+        <div class="comic-slam-guide">
+          <div class="refresh-h3-container">
+            <h3 class="refresh-h3">Comic Generator</h3>
+            <div class="refresh-para-container">
+              <p class="refresh-h3-para">
+                Enter a number to unlock a comic—just for you! Want more? Tap
+                ‘Next’ or ‘Previous’ (Prev) to explore even more gems, or hit
+                ‘Random’ for a surprise every time! Love a comic? Click on it to
+                open it up, and don’t forget to save it to your ‘Favorites’
+                collection for easy access anytime!
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div id="user-input">
-          <label for="user-input">Enter A Number:</label>
-          <input type="number" name="user-input" id="input" />
-          <button id="submit-btn">Submit</button>
+          <form action="" class="user-input-form">
+            <label for="user-input">Enter A Number:</label>
+            <input type="number" name="user-input" id="input" />
+            <button id="submit-btn" type="submit">Submit</button>
+          </form>
         </div>
 
         <div id="comic-gen-title">
@@ -105,7 +122,7 @@
     <!-- <script type="module" src="./main.js"></script> -->
     <script type="module" src="comic.js"></script>
   </body>
-  <foot class="footer">
+  <footer class="footer">
     <p class="footer-text">© 2025 RoyalDevs™. All Rights Reserved</p>
-  </foot>
+  </footer>
 </html>
