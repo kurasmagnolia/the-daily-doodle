@@ -30,8 +30,9 @@ body {
   align-items: center;
   /* justify-content: space-between; */
   border-top: 3px solid #000000;
-  margin-top: 5%;
+  margin-top: 15%;
   height: 45px;
+  position: sticky;
 }
 
 .footer-text {
@@ -567,6 +568,10 @@ ul {
   max-width: 100%;
   margin-bottom: 9px;
   height: 100%;
+}
+
+.fav-panel:hover {
+  cursor: pointer;
 }
 
 #user-input {
