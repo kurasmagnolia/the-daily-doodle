@@ -15,10 +15,10 @@ This project was built to inspire creativity, spread smiles, and give people a q
 
 ## 🔗 Additional Links
 - **🖼 Wireframe:**  
-  ![Wireframe - Home Page](../app/src/assets/wireframes/tdd-wireframe-1.jpg)
-  ![Wireframe - Comic Generator Page](../app/src/assets/wireframes/tdd-wireframe-3.jpg)
-  ![Wireframe - My Favorites Page](../app/src/assets/wireframes/tdd-wireframe-2.jpg)
-  ![Wireframe - My Favorites Modal](../app/src/assets/wireframes/tdd-wireframe-4.jpg)
+  ![Wireframe - Home Page](./app/src/assets/wireframes/tdd-wireframe-1.jpg)
+  ![Wireframe - Comic Generator Page](./app/src/assets/wireframes/tdd-wireframe-3.jpg)
+  ![Wireframe - My Favorites Page](./app/src/assets/wireframes/tdd-wireframe-2.jpg)
+  ![Wireframe - My Favorites Modal](./app/src/assets/wireframes/tdd-wireframe-4.jpg)
 
 ---
 
