@@ -20,7 +20,10 @@ const main = async () => {
   });
 
   // Click event listeners for dynamically generated comic panels
-  document.addEventListener("click", handleFavoriteComicClick);
+  document.addEventListener("click", (e) => {
+    updateHeartIcons(); // Ensure the heart icons in the grid are updated based on the localStorage state
+    handleFavoriteComicClick(e);
+  });
 
   // Event listener for the close button
   closeButton.addEventListener("click", () => {

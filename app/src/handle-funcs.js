@@ -31,6 +31,7 @@ export const handleRefreshClick = async () => {
 };
 
 export const handleComicClick = (event) => {
+  console.log("handleComicClick ran");
   const dialog = document.querySelector("dialog"); // selects the dialog element
   const modalTitle = document.querySelector(".modal-title");
   const modalImage = document.querySelector(".modal-image"); // selects the image inside the modal
@@ -80,6 +81,8 @@ export const handleComicClick = (event) => {
 };
 
 export const handleFavoriteClick = (event) => {
+  console.log("handleFavoriteClick ran");
+
   // Ensure we're interacting with the heart button, not other elements
   const heartButton = event.target.closest(".favorite-button");
   if (!heartButton) return; // If the clicked element is not a heart button, return
@@ -229,6 +232,7 @@ export const handleInputSubmit = async (event) => {
 };
 
 export const handleFavoriteComicClick = (event) => {
+  console.log("handleFavoriteComicClick ran");
   const clickedComic = event.target.closest(".favorite-comic-item"); // Clicked on a comic item
   if (!clickedComic) return; // If no comic item is clicked, return early
 
